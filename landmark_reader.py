@@ -16,7 +16,9 @@ def landmark_reader(npy_path):
                                  "ID":int(ids[:-4]), "landmarks":np.load(os.path.join(npy_path, frames, ids))})
     return npy_info
 
-example = landmark_reader("../output/landmarks/recording")
+file_path = "output/landmarks/recording"
+
+example = landmark_reader(file_path)
 for info in example:
     print("video name: {}\nframe number: {}\nface id: {}, landmark shape: {}\n\n".format(
         info["VideoName"], info["frame_number"], info["ID"], info["landmarks"].shape))
