@@ -4,8 +4,6 @@ import os
 def landmark_reader(npy_path):
     """
     npy_path: outputs/landmarks/<video_name>
-    output: dictionary npy_info
-            for using numpy array npy_info[index]["landmarks"]
     """
     npy_info = []
     video_name = npy_path.split('/')[-1]
@@ -19,6 +17,8 @@ def landmark_reader(npy_path):
 file_path = "output/landmarks/recording"
 
 example = landmark_reader(file_path)
+
+# Output example
 for info in example:
     print("video name: {}\nframe number: {}\nface id: {}, landmark shape: {}\n\n".format(
         info["VideoName"], info["frame_number"], info["ID"], info["landmarks"].shape))
